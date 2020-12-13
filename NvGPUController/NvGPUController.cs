@@ -16,7 +16,7 @@ namespace NvGPUController
             ("Folding@Home", () =>
             {
                 int minPower = 0;
-                int maxPower = 70;
+                int maxPower = 72;
 
                 //var processes = Process.GetProcessesByName("FahCore_22.exe");
                 var processes = Process.GetProcesses();
