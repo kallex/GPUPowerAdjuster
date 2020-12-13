@@ -1,32 +1,23 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using Microsoft.Extensions.Configuration;
 using NvAPIWrapper.GPU;
 using NvAPIWrapper.Native;
 using NvAPIWrapper.Native.GPU.Structures;
 
 namespace NvGPUController
 {
+    public delegate (bool isMatch, int minPower, int maxPower) PowerRuleEvaluator();
     public class NvGPUPowerController
     {
-        public delegate (bool isMatch, int minPower, int maxPower) PowerRuleEvaluator();
 
-        public (string name, PowerRuleEvaluator evaluator)[] ActivePowerRules = new (string name, PowerRuleEvaluator)[]
+        public NvGPUPowerController((string name, PowerRuleEvaluator)[] activePowerRules)
         {
-            ("Folding@Home", () =>
-            {
-                int minPower = 0;
-                int maxPower = 72;
+            ActivePowerRules = activePowerRules;
+        }
 
-                //var processes = Process.GetProcessesByName("FahCore_22.exe");
-                var processes = Process.GetProcesses();
-                bool isMatch = processes.Any(item => item.ProcessName.Contains("FahCore_22"));
-
-                return (isMatch, minPower, maxPower);
-            }),
-            ("Default", () => (true, 100, 100))
-        };
-
+        public (string name, PowerRuleEvaluator evaluator)[] ActivePowerRules;
         public static (bool isChanged, int powerPercentage) SetGPUPowerLimit(int targetPercentage)
         {
             var gpus = PhysicalGPU.GetPhysicalGPUs();
@@ -61,6 +52,22 @@ namespace NvGPUController
 
             var targetPercentage = matching.result.maxPower;
             var result = SetGPUPowerLimit(targetPercentage);
+            return result;
+        }
+
+        public static PowerRuleEvaluator CreateProcessNameEvaluator(int limit, string procName)
+        {
+            PowerRuleEvaluator result = () =>
+            {
+                int minPower = 0;
+                int maxPower = limit;
+
+                //var processes = Process.GetProcessesByName("FahCore_22.exe");
+                var processes = Process.GetProcesses();
+                bool isMatch = processes.Any(item => item.ProcessName.Contains(procName));
+
+                return (isMatch, minPower, maxPower);
+            };
             return result;
         }
     }
