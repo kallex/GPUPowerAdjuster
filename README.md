@@ -1,4 +1,5 @@
 # GPUPowerAdjuster - NOTE! Only works on NVIDIA GPUs for now
+## Windows x64 for now - possibly portable to other platforms (if NVIDIA API works)
 GPU power adjustment based on active processes (for example folding vs gaming)
 
 ## TLDR
