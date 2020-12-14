@@ -1,4 +1,4 @@
-# GPUPowerAdjuster
+# GPUPowerAdjuster - NOTE! Only works on NVIDIA GPUs for now
 GPU power adjustment based on active processes (for example folding vs gaming)
 
 ## TLDR
