@@ -7,36 +7,39 @@
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
     <ROW Property="ARPNOMODIFY" Value="1"/>
     <ROW Property="ARPNOREPAIR" MultiBuildValue="DefaultBuild:1"/>
-    <ROW Property="LIMITUI" Value="1"/>
+    <ROW Property="LIMITUI" Value="1" MultiBuildValue="DefaultBuild:"/>
     <ROW Property="Manufacturer" Value="ProtonIT Oy"/>
-    <ROW Property="ProductCode" Value="1033:{C1A9FA3F-58AC-499D-A237-1FB8E7841C82} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{FD7BF054-FE86-4952-87C8-2CA616040EC4} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="GPU Power Adjuster"/>
-    <ROW Property="ProductVersion" Value="1.0.0" Type="32"/>
+    <ROW Property="ProductVersion" Value="0.9.3" Type="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{324439B6-535C-4007-A77B-47B7DC3F7C37}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
     <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT" MultiBuildValue="DefaultBuild:Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86/Windows 10 x86" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNTDisplay" MultiBuildValue="DefaultBuild:32-bit Windows versions" ValueLocId="-"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
     <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
-    <ROW Component="AI_ExePath" ComponentId="{DD6AFCAC-AB05-48F8-8477-5F2A8F449EC9}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
+    <ROW Component="AI_ExePath" ComponentId="{DD6AFCAC-AB05-48F8-8477-5F2A8F449EC9}" Directory_="APPDIR" Attributes="260" KeyPath="AI_ExePath"/>
     <ROW Component="APPDIR" ComponentId="{FBEEC8B3-1E7C-4A1B-AF21-3D6D4EDA8534}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="GPUPowerAdjusterSvc.exe" ComponentId="{F66030C8-9F56-4EC1-AF41-7BD60B90EFD5}" Directory_="APPDIR" Attributes="256" KeyPath="GPUPowerAdjusterSvc.exe"/>
-    <ROW Component="ProductInformation" ComponentId="{8553CDBA-3584-44A5-8E0C-A92851802F46}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="ProductInformation" ComponentId="{8553CDBA-3584-44A5-8E0C-A92851802F46}" Directory_="APPDIR" Attributes="260" KeyPath="Version"/>
     <ROW Component="appsettings.json" ComponentId="{066D0EB7-3848-4118-A364-A502ADE6702D}" Directory_="APPDIR" Attributes="0" KeyPath="appsettings.json" Type="0"/>
     <ROW Component="clrcompression.dll" ComponentId="{CE5133A8-7955-4DAB-9A2A-06287D552BC9}" Directory_="APPDIR" Attributes="256" KeyPath="clrcompression.dll"/>
     <ROW Component="clrjit.dll" ComponentId="{F2867687-38FC-45F7-9A6E-8E5E4F680357}" Directory_="APPDIR" Attributes="256" KeyPath="clrjit.dll"/>
     <ROW Component="coreclr.dll" ComponentId="{856B5C11-C013-4918-B224-B1A978D64218}" Directory_="APPDIR" Attributes="256" KeyPath="coreclr.dll"/>
+    <ROW Component="cpl.applet" ComponentId="{CD74FCF4-6FBE-4DB9-A888-E299447D9B4A}" Directory_="APPDIR" Attributes="0" KeyPath="cpl.applet"/>
     <ROW Component="mscordaccore.dll" ComponentId="{3333BD26-70EB-4ADA-99AF-2721FA641EC3}" Directory_="APPDIR" Attributes="256" KeyPath="mscordaccore.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
@@ -50,12 +53,16 @@
     <ROW File="coreclr.dll" Component_="coreclr.dll" FileName="coreclr.dll" Attributes="0" SourcePath="..\publish\coreclr.dll" SelfReg="false"/>
     <ROW File="GPUPowerAdjusterSvc.exe" Component_="GPUPowerAdjusterSvc.exe" FileName="GPUPOW~1.EXE|GPUPowerAdjusterSvc.exe" Attributes="0" SourcePath="..\publish\GPUPowerAdjusterSvc.exe" SelfReg="false" DigSign="true"/>
     <ROW File="mscordaccore.dll" Component_="mscordaccore.dll" FileName="MSCORD~1.DLL|mscordaccore.dll" Attributes="0" SourcePath="..\publish\mscordaccore.dll" SelfReg="false"/>
+    <ROW File="cpl.applet" Component_="cpl.applet" FileName="CPL~1.APP|cpl.applet" Attributes="0" SourcePath="&lt;AI_TEMPLATES&gt;cpl.applet" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="1" PackageFolder="Setup Files" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" UseLargeSchema="true"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="1" PackageFolder="Setup Files" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" UseLargeSchema="true" ExeName="[|ProductName] [|ProductVersion]" MsiPackageType="x64"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.CPLAppletComponent">
+    <ROW CPLApplet="cpl" CPLAppletStub="cpl.applet" Guid="{1B42D3BF-FD67-4112-BBE5-3E8C2EDF73E8}" Caption="GPU Power Adjuster Config" Description="Edit GPU Power Adjuster settings" Target="[WindowsFolder]notepad.exe" CommandLine="[#appsettings.json]" Category="8" Registration="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
     <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
@@ -79,6 +86,11 @@
     <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_CplAppletConfig" Description="Executing install Control Panel applets" DescriptionLocId="ActionText.Description.AI_CplAppletConfig" Template="Applet: [1]" TemplateLocId="ActionText.Template.AI_CplAppletConfig"/>
+    <ROW Action="AI_CplAppletInstall" Description="Generating actions to configure Control Panel applets resources" DescriptionLocId="ActionText.Description.AI_CplAppletInstall"/>
+    <ROW Action="AI_CplAppletRemove" Description="Executing uninstall Control Panel applets" DescriptionLocId="ActionText.Description.AI_CplAppletRemove" Template="Applet: [1]" TemplateLocId="ActionText.Template.AI_CplAppletRemove"/>
+    <ROW Action="AI_CplAppletRollback" Description="Executing rollback Control Panel applets" DescriptionLocId="ActionText.Description.AI_CplAppletRollback" Template="Applet: [1]" TemplateLocId="ActionText.Template.AI_CplAppletRollback"/>
+    <ROW Action="AI_CplAppletUninstall" Description="Generating actions to uninstall Control Panel applets resources" DescriptionLocId="ActionText.Description.AI_CplAppletUninstall"/>
     <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
     <ROW Action="AI_DeleteRLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
     <ROW Action="AI_ExtractFiles" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
@@ -91,7 +103,9 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
     <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="cplapplet.cpl" SourcePath="&lt;AI_CUSTACTS&gt;cplapplet.cpl"/>
     <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+    <ROW Name="userAccounts.dll" SourcePath="&lt;AI_CUSTACTS&gt;userAccounts.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
     <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
@@ -122,7 +136,14 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ConfigPermissions" Type="1" Source="userAccounts.dll" Target="OnConfigPermissions" AdditionalSeq="AI_DATA_SETTER_1"/>
+    <ROW Action="AI_CplAppletConfig" Type="11265" Source="cplapplet.cpl" Target="OnCplAppletConfig" WithoutSeq="true"/>
+    <ROW Action="AI_CplAppletInstall" Type="1" Source="cplapplet.cpl" Target="OnCplAppletInstall"/>
+    <ROW Action="AI_CplAppletRemove" Type="11265" Source="cplapplet.cpl" Target="OnCplAppletRemove" WithoutSeq="true"/>
+    <ROW Action="AI_CplAppletRollback" Type="11521" Source="cplapplet.cpl" Target="OnCplAppletRollback" WithoutSeq="true"/>
+    <ROW Action="AI_CplAppletUninstall" Type="1" Source="cplapplet.cpl" Target="OnCplAppletUninstall"/>
     <ROW Action="AI_DATA_SETTER" Type="51" Source="CustomActionData" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER_1" Type="51" Source="CustomActionData" Target="[~]"/>
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
     <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
@@ -136,12 +157,15 @@
     <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
     <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
     <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_PrepareRevokePermissions" Type="1" Source="userAccounts.dll" Target="OnPrepareRevokePermissions"/>
     <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
     <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
     <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_RevokePermissions" Type="11265" Source="userAccounts.dll" Target="OnRevokePermissions" WithoutSeq="true"/>
     <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
-    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="AI_SetPermissions" Type="11265" Source="userAccounts.dll" Target="OnSetPermissions" WithoutSeq="true"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[ProgramFiles64Folder]ProtonIT\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
   </COMPONENT>
@@ -155,6 +179,7 @@
     <ROW Feature_="MainFeature" Component_="coreclr.dll"/>
     <ROW Feature_="MainFeature" Component_="GPUPowerAdjusterSvc.exe"/>
     <ROW Feature_="MainFeature" Component_="mscordaccore.dll"/>
+    <ROW Feature_="MainFeature" Component_="cpl.applet"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
     <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
@@ -174,6 +199,11 @@
     <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild"/>
     <ROW Action="AI_ExtractFiles" Sequence="1399" Builds="DefaultBuild"/>
     <ROW Action="AI_DATA_SETTER" Sequence="1398"/>
+    <ROW Action="AI_CplAppletInstall" Condition="(VersionNT &gt;= 500) AND ((Not Installed) OR REINSTALL)" Sequence="5401"/>
+    <ROW Action="AI_CplAppletUninstall" Condition="(VersionNT &gt;= 500) AND (REMOVE)" Sequence="2401"/>
+    <ROW Action="AI_ConfigPermissions" Condition="REMOVE &lt;&gt; &quot;ALL&quot;" Sequence="5852"/>
+    <ROW Action="AI_DATA_SETTER_1" Condition="REMOVE &lt;&gt; &quot;ALL&quot;" Sequence="5851"/>
+    <ROW Action="AI_PrepareRevokePermissions" Condition="REMOVE = &quot;ALL&quot;" Sequence="1699"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
@@ -184,11 +214,15 @@
     <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="( Version9X OR VersionNT64 )" Description="[ProductName] cannot be installed on [WindowsTypeNTDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLockPermComponent">
+    <ROW LockObject="appsettings.json" Table="File" User="INTERACTIVE" Permission="1610744255" Flags="2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
     <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
