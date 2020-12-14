@@ -17,11 +17,13 @@ Sets lower power limit when Folding@Home, sets higher when not. Works with "When
 - ... or just edit in installdir (default "C:\Program Files\ProtonIT\GPU Power Adjuster") appsettings.json
 
 "ControlLimits" part allows modifying the default limit and certain process specific ones
+`
       {
         "Name": "Folding@Home",
         "ProcName": "FahCore_22",
         "Limit": 72
       },
+`
 
 The software goes the options in order, first one that matches partial ProcName (ProcessName containing the ProcName part) sets the Power Limit to the given percentage.
 
