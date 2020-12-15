@@ -16,6 +16,7 @@ Sets lower power limit when Folding@Home, sets higher when not. Works with "When
 ## Configuration:
 - Open Control Panel => Programs => GPU Power Adjuster Config
 - ... or just edit in installdir (default "C:\Program Files\ProtonIT\GPU Power Adjuster") appsettings.json
+- **Restart service after modifications**
 
 "ControlLimits" part allows modifying the default limit and certain process specific ones
 `
